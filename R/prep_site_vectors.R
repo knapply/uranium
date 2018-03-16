@@ -7,7 +7,7 @@ prep_site_vectors <- function(country, site_name){
                full.names = TRUE, recursive = TRUE)
   
   valid_regex <- c("effluent", "pond", "tailings",
-                   "main_area") %>% 
+                   "main_area", "open_pit", "spoils") %>% 
     str_c(collapse = "|")
   
   valid_files <- files %>% 
@@ -37,7 +37,7 @@ prep_site_vectors <- function(country, site_name){
   
   if("tailings" %in% valid_files){
   tailings_sf <- files %>% 
-    str_subset("tailings.kml") %>% 
+    str_subset("tailings\\.kml") %>% 
     map(read_sf) %>% 
     reduce(rbind) %>% 
         mutate(macro = "water",
@@ -56,14 +56,33 @@ prep_site_vectors <- function(country, site_name){
   
   if("main_area" %in% valid_files){
     main_area_sf <- files %>% 
-      str_subset("main_area") %>% 
+      str_subset("main_area\\.kml") %>% 
       read_sf() %>% 
       mutate(macro = "layout",
              meso = "main area",
              micro = NA)
   } else main_area_sf <- NULL
   
-  list(effluent_sf, pond_sf, tailings_sf, main_area_sf) %>% 
+  if("open_pit" %in% valid_files){
+    open_pit_sf <- files %>% 
+      str_subset("open_pit\\.kml") %>% 
+      read_sf() %>% 
+      mutate(macro = "layout",
+             meso = "open pit",
+             micro = NA)
+  } else open_pit_sf <- NULL
+  
+    if("spoils" %in% valid_files){
+      spoils_sf <- files %>%
+        str_subset("spoils_\\d+\\.kml") %>%
+        read_sf() %>%
+        mutate(macro = "layout",
+               meso = "spoils",
+               micro = NA)
+  } else spoils_sf <- NULL
+  
+  list(effluent_sf, pond_sf, tailings_sf, main_area_sf,
+       open_pit_sf) %>% 
     compact() %>% 
     reduce(rbind) %>% 
     st_zm()
@@ -73,8 +92,9 @@ prep_site_vectors <- function(country, site_name){
 # test it: 
   # prep_site_vectors("in", "jaduguda")$geometry %>% plot()
   # prep_site_vectors("in", "tummalapalle")$geometry %>% plot()
+  # prep_site_vectors("in", "turamdih_banduhurang")$geometry %>% plot()
 
-sites <- c("jaduguda", "tummalapalle")
+sites <- c("jaduguda", "tummalapalle", "turamdih_banduhurang")
 
 sites %>% 
   map(~ prep_site_vectors("in", .x)) %>% 
