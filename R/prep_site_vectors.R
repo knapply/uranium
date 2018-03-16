@@ -31,8 +31,8 @@ prep_site_vectors <- function(country, site_name){
       map(read_sf) %>% 
       reduce(rbind) %>% 
           mutate(macro = "water",
-             meso = "treatment",
-             micro = "pond")
+                 meso = "treatment",
+                 micro = "pond")
   } else pond_sf <- NULL
   
   if("tailings" %in% valid_files){
@@ -41,8 +41,8 @@ prep_site_vectors <- function(country, site_name){
     map(read_sf) %>% 
     reduce(rbind) %>% 
         mutate(macro = "water",
-           meso = "treatment",
-           micro = "tailings")
+               meso = "treatment",
+               micro = "tailings")
   } else tailings_sf <- NULL
   
   # if("entrance" %in% valid_files){
@@ -59,8 +59,8 @@ prep_site_vectors <- function(country, site_name){
       str_subset("main_area") %>% 
       read_sf() %>% 
       mutate(macro = "layout",
-         meso = "main area",
-         micro = NA)
+             meso = "main area",
+             micro = NA)
   } else main_area_sf <- NULL
   
   list(effluent_sf, pond_sf, tailings_sf, main_area_sf) %>% 
@@ -70,7 +70,9 @@ prep_site_vectors <- function(country, site_name){
   
 }
 
-# prep_site_vectors("in", "jaduguda") %>% .$geometry %>% plot
+# test it: 
+  # prep_site_vectors("in", "jaduguda")$geometry %>% plot()
+  # prep_site_vectors("in", "tummalapalle")$geometry %>% plot()
 
-# "jaduguda", "tummalapalle"
+# sites so far... "jaduguda", "tummalapalle"
 
