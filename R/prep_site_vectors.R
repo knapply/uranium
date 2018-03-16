@@ -90,9 +90,10 @@ prep_site_vectors <- function(country, site_name){
 }
 
 # test it: 
-  # prep_site_vectors("in", "jaduguda")$geometry %>% plot()
-  # prep_site_vectors("in", "tummalapalle")$geometry %>% plot()
-  # prep_site_vectors("in", "turamdih_banduhurang")$geometry %>% plot()
+# prep_site_vectors("in", "jaduguda")$geometry %>% plot()
+# prep_site_vectors("in", "tummalapalle")$geometry %>% plot()
+# prep_site_vectors("in", "turamdih_banduhurang")$geometry %>% plot()
+prep_site_vectors("in", "turamdih_banduhurang")$geometry %>% mapview::mapview()
 
 sites <- c("jaduguda", "tummalapalle", "turamdih_banduhurang")
 
@@ -101,5 +102,5 @@ sites %>%
   walk2(sites, ~ write_rds(.x, paste0("data/", .y, "_vectors.rds")))
 
 
-
+read_rds("data/jaduguda_vectors.rds") %>% mapview::mapview()
 
