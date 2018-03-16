@@ -80,9 +80,6 @@ sites %>%
   map(~ prep_site_vectors("in", .x)) %>% 
   walk2(sites, ~ write_rds(.x, paste0("data/", .y, "_vectors.rds")))
 
-prep_site_vectors("in", "jaduguda") %>% 
-  write_rds("data/jaduguda_vectors.rds")
-
 
 
 
