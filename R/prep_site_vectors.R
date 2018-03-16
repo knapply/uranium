@@ -74,5 +74,15 @@ prep_site_vectors <- function(country, site_name){
   # prep_site_vectors("in", "jaduguda")$geometry %>% plot()
   # prep_site_vectors("in", "tummalapalle")$geometry %>% plot()
 
-# sites so far... "jaduguda", "tummalapalle"
+sites <- c("jaduguda", "tummalapalle")
+
+sites %>% 
+  map(~ prep_site_vectors("in", .x)) %>% 
+  walk2(sites, ~ write_rds(.x, paste0("data/", .y, "_vectors.rds")))
+
+prep_site_vectors("in", "jaduguda") %>% 
+  write_rds("data/jaduguda_vectors.rds")
+
+
+
 
