@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>entrance.kml</name>
+	<Style id="sh_poi">
+		<IconStyle>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/poi.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<ListStyle>
+		</ListStyle>
+	</Style>
+	<Style id="sn_poi">
+		<IconStyle>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/poi.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<ListStyle>
+		</ListStyle>
+	</Style>
+	<StyleMap id="msn_poi">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_poi</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_poi</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Placemark>
+		<name>entrance</name>
+		<LookAt>
+			<longitude>78.26802077796445</longitude>
+			<latitude>14.32261420327753</latitude>
+			<altitude>0</altitude>
+			<heading>-5.778807260652918e-005</heading>
+			<tilt>0</tilt>
+			<range>486.3300714442347</range>
+			<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+		</LookAt>
+		<styleUrl>#msn_poi</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>78.26752498284257,14.32294047804665,0</coordinates>
+		</Point>
+	</Placemark>
+</Document>
+</kml>
