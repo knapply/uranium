@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
 <Document>
-	<name>pond_1.kml</name>
+	<name>jaduguda_poly.kml</name>
 	<Style id="sn_ylw-pushpin">
 		<IconStyle>
 			<scale>1.1</scale>
@@ -47,14 +47,14 @@
 		</Pair>
 	</StyleMap>
 	<Placemark>
-		<name>pond_1</name>
+		<name>jaduguda_poly</name>
 		<styleUrl>#msn_ylw-pushpin</styleUrl>
 		<Polygon>
 			<tessellate>1</tessellate>
 			<outerBoundaryIs>
 				<LinearRing>
 					<coordinates>
-						86.3449807327105,22.65613321663498,0 86.34530241162398,22.65547223588616,0 86.3457381826305,22.65563601776028,0 86.34542125953895,22.65626775287964,0 86.3449807327105,22.65613321663498,0 
+						86.3226368609741,22.65561021664655,0 86.3256300981227,22.64951359064259,0 86.3278402877944,22.64811524036994,0 86.35180534471523,22.64675594602366,0 86.35383719717878,22.64797839685892,0 86.35543069605349,22.65005719348256,0 86.35155117670925,22.65457320283847,0 86.34601676605784,22.65748742723449,0 86.33260164794007,22.6649354753273,0 86.32130767498947,22.66200368316704,0 86.32088074050164,22.66187237333779,0 86.3226368609741,22.65561021664655,0 
 					</coordinates>
 				</LinearRing>
 			</outerBoundaryIs>

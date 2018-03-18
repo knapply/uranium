@@ -101,5 +101,7 @@ sites %>%
   map(~ prep_site_vectors("in", .x)) %>% 
   walk2(sites, ~ write_rds(.x, paste0("data/", .y, "_vectors.rds")))
 
+rm(sites)
+
 
 
